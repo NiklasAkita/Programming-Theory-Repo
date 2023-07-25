@@ -2,25 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Missile : MonoBehaviour
 {
-    public float minSpeed = 5f;
+    protected float speed = 5f;
 
     public GameObject gfx;
-    private float actualSpeed;
     // Start is called before the first frame update
-    void Start()
-    {
-        actualSpeed = Random.Range(minSpeed, minSpeed + 5f);
-    }
+
 
     // Update is called once per frame
     void Update()
     {
-        RotateTowardPlayer();
         FollowPlayer();
     }
 
+
+    public virtual float CalcSpeed(float speed)
+    {
+        return speed;
+    }
     void FollowPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -32,20 +33,9 @@ public class Missile : MonoBehaviour
         Vector3 missilePosition = transform.position;
         Vector3 direction = (playerPosition - missilePosition).normalized;
         // transform.LookAt(playerPosition);
-        transform.Translate(direction * Time.deltaTime * actualSpeed);
-    }
-
-    void RotateTowardPlayer()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null)
-        {
-            return;
-        }
-        Vector3 playerPosition = player.transform.position;
-        Vector3 missilePosition = transform.position;
-        Vector3 direction = (playerPosition - missilePosition).normalized;
+        transform.Translate(direction * Time.deltaTime * CalcSpeed(speed));
         gfx.transform.LookAt(playerPosition);
+
     }
 
     void OnTriggerEnter(Collider other)

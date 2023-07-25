@@ -1094,7 +1094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8cf088fdffaef04cb17859c04ad87b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5676772469447434987, guid: 356c04c930a62734986adbcca46693ca, type: 3}
+  enemyPrefab:
+  - {fileID: 5676772469447434987, guid: 356c04c930a62734986adbcca46693ca, type: 3}
+  - {fileID: 5676772469447434987, guid: 02100484c2475cb4e93d5577f5a2db36, type: 3}
   spawnTime: 3
   spawnPoint: {fileID: 317964443}
 --- !u!1 &1570658198
