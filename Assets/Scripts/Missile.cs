@@ -14,10 +14,11 @@ public class Missile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ABSTRACTION
         FollowPlayer();
     }
 
-
+    // ABSTRACTION
     public virtual float CalcSpeed(float speed)
     {
         return speed;

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
+    // ENCAPSULATION
     public bool isGameOver { get; private set; } = false;
 
 

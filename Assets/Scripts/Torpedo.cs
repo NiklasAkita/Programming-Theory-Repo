@@ -5,6 +5,8 @@ using UnityEngine;
 public class Torpedo : Missile
 {
     // POLYMORPHISM
+    // ABSTRACTION
+
     public override float CalcSpeed(float speed)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
