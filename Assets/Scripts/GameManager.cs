@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
+    public bool isGameOver { get; private set; } = false;
+
 
     public TextMeshProUGUI healthText;
     [SerializeField] int healthPoints = 3;
@@ -32,8 +34,8 @@ public class GameManager : MonoBehaviour
         SetHealthText();
         if (healthPoints <= 0)
         {
-            Debug.Log("Game Over");
             Destroy(player);
+            isGameOver = true;
         }
     }
     void SetHealthText()

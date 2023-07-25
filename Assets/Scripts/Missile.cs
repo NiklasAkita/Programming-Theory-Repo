@@ -24,6 +24,10 @@ public class Missile : MonoBehaviour
     void FollowPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            return;
+        }
         Vector3 playerPosition = player.transform.position;
         Vector3 missilePosition = transform.position;
         Vector3 direction = (playerPosition - missilePosition).normalized;
@@ -34,6 +38,10 @@ public class Missile : MonoBehaviour
     void RotateTowardPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            return;
+        }
         Vector3 playerPosition = player.transform.position;
         Vector3 missilePosition = transform.position;
         Vector3 direction = (playerPosition - missilePosition).normalized;
